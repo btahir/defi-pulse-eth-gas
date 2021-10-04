@@ -37,15 +37,13 @@ export default function Home({ data }) {
       </Head>
 
       <main className='flex flex-col items-center justify-start w-full flex-1 p-10'>
-        {/* <img src='/icon.svg' alt='logo' className='h-10 w-10 mb-2 sm:hidden' /> */}
-        {/* <div className='flex justify-center items-center'> */}
         <h1 className='text-4xl sm:text-5xl font-bold text-center'>
           Welcome to <span className='text-purple-600'>Eth Gas Station</span>
         </h1>
-        {/* </div> */}
 
         <p className='mt-3 text-lg sm:text-2xl text-gray-500 text-center max-w-xl mx-auto'>
-          Quickly see the recommended gas prices and wait times on the Ethereum Blockchain.
+          Quickly see the recommended gas prices and wait times on the Ethereum
+          Blockchain.
         </p>
 
         <div className='flex flex-col items-center justify-center max-w-lg mt-6 sm:mt-12 w-full space-y-4'>
