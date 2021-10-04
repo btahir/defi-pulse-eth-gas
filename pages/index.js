@@ -1,10 +1,36 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import DataDisplay from '../components/DataDisplay'
 
 export default function Home({ data }) {
+  const [gasData, setGasData] = useState([])
   useEffect(() => {
     console.log('data', data)
-  })
+    setGasData([
+      {
+        title: 'Average',
+        price: data.average,
+        wait: data.avgWait,
+      },
+      {
+        title: 'Slow',
+        price: data.safeLow,
+        wait: data.safeLowWait,
+      },
+      {
+        title: 'Fast',
+        price: data.fast,
+        wait: data.fastWait,
+      },
+      {
+        title: 'Fastest',
+        price: data.fastest,
+        wait: data.fastestWait,
+      },
+    ])
+  }, [])
+
+  console.log(gasData)
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
@@ -21,24 +47,31 @@ export default function Home({ data }) {
         </h1>
         {/* </div> */}
 
-        <p className='mt-3 text-2xl text-gray-500'>
+        <p className='mt-3 text-lg sm:text-2xl text-gray-500 text-center'>
           Quickly see how much gas is going for on the blockchain.
         </p>
 
-        <div className='flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full'>
-          haha
+        <div className='flex flex-col items-center justify-center max-w-lg mt-6 sm:mt-12 w-full space-y-4'>
+          {gasData.map((item) => (
+            <DataDisplay
+              key={item.title}
+              title={item.title}
+              gasPrice={item.price}
+              waitTime={item.wait}
+            />
+          ))}
         </div>
       </main>
 
       <footer className='flex items-center justify-center w-full h-24 border-t'>
         <a
           className='flex items-center justify-center'
-          href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
+          href='https://twitter.com/deepwhitman'
           target='_blank'
           rel='noopener noreferrer'
         >
-          Powered by{' '}
-          <img src='/vercel.svg' alt='Vercel Logo' className='h-4 ml-2' />
+          Built by{' '}
+          <span className='text-purple-600 font-bold ml-1'>Bilal Tahir</span>
         </a>
       </footer>
     </div>
