@@ -5,7 +5,6 @@ import DataDisplay from '../components/DataDisplay'
 export default function Home({ data }) {
   const [gasData, setGasData] = useState([])
   useEffect(() => {
-    console.log('data', data)
     setGasData([
       {
         title: 'Average',
@@ -30,8 +29,6 @@ export default function Home({ data }) {
     ])
   }, [])
 
-  console.log(gasData)
-
   return (
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
       <Head>
@@ -47,8 +44,8 @@ export default function Home({ data }) {
         </h1>
         {/* </div> */}
 
-        <p className='mt-3 text-lg sm:text-2xl text-gray-500 text-center'>
-          Quickly see how much gas is going for on the blockchain.
+        <p className='mt-3 text-lg sm:text-2xl text-gray-500 text-center max-w-xl mx-auto'>
+          Quickly see the recommended gas prices and wait times on the Ethereum Blockchain.
         </p>
 
         <div className='flex flex-col items-center justify-center max-w-lg mt-6 sm:mt-12 w-full space-y-4'>
