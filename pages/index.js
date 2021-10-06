@@ -79,15 +79,6 @@ export async function getServerSideProps(context) {
   )
   const data = await res.json()
 
-  if (!data) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    }
-  }
-
   return {
     props: { data },
   }
